@@ -1,8 +1,5 @@
 language: java
 jdk: oraclejdk7
 
-before_install:
- - ls
-
 notifications:
   email: false
