@@ -2,7 +2,7 @@ language: java
 jdk: oraclejdk7
 
 before_install:
- - chmod +x gradlew
+ - ls
 
 notifications:
   email: false
