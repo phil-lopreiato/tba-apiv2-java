@@ -1,4 +1,70 @@
 apply plugin: 'java'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+def versionString = '0.1.2'
+def siteUrl = 'https://github.com/phil-lopreiato/tba-apiv2-java'
+def gitUrl = 'https://github.com/phil-lopreiato/tba-apiv2-java.git'
+def issueUrl = 'https://github.com/phil-lopreiato/tba-apiv2-java/issues'
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = "TBAAPIv2-Java"
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        issueTrackerUrl = issueUrl
+        licenses = ["MIT", "Apache-2.0"]
+        publish = true
+        version {
+            name = versionString
+            desc = 'Version '+versionString
+            vcsTag = 'v'+versionString
+        }
+    }
+}
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+
+                // Add your description here
+                name = 'A simple Java implmentation of The Blue Allinace APIv2'
+                url siteUrl
+
+                // Set your license
+                licenses {
+                    license {
+                        name 'MIT License'
+                        url 'http://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'phil-lopreiato'
+                        name 'Phil Lopreiato'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+
+                }
+            }
+        }
+    }
+}
 
 dependencies {
     compile 'com.squareup.retrofit:retrofit:1.9.0'
@@ -7,4 +73,18 @@ dependencies {
     compile 'com.google.code.gson:gson:2.3'
 
     testCompile 'junit:junit:4.12'
+}
+
+task sourcesJar(type: Jar) {
+    from 'src/main'
+    classifier = 'sources'
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
 }
