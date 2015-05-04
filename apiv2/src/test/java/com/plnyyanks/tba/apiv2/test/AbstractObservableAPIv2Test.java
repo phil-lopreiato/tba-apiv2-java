@@ -6,8 +6,6 @@ import com.plnyyanks.tba.apiv2.interfaces.ObservableAPIv2;
 import org.junit.Before;
 import org.junit.Ignore;
 
-import static org.junit.Assume.assumeTrue;
-
 
 /**
  * Class that hits TBA endpoints and tests that we can get data back
@@ -18,14 +16,12 @@ import static org.junit.Assume.assumeTrue;
 @Ignore
 public abstract class AbstractObservableAPIv2Test {
     ObservableAPIv2 api;
+    private static final String API_APP_ID = "plnyyanks:apiv2-java-observable-junit:v0.1";
 
     @Before
     public void setupAPIClient(){
-        boolean shouldRun = true; //TODO move to configuration file
-
-        APIv2Helper.APIv2RequestInterceptor.isFromJunit = true;
+        APIv2Helper.setAppId(API_APP_ID);
         api = APIv2Helper.getObservableAPI();
-        assumeTrue(shouldRun);
     }
 
 }

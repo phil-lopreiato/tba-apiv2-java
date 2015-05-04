@@ -18,13 +18,15 @@ public final class APIv2Helper {
 
     public static final String TBA_APIv2_URL = "http://www.thebluealliance.com/api/v2";
 
-    private static final String VERSION = "v0.1";
-    private static final String API_APP_ID = "plnyyanks:apiv2-java:"+VERSION;
-
     private static APIv2 tbaAPI;
     private static ObservableAPIv2 observableAPI;
     private static OkClient okClient;
     private static RestAdapter adapter;
+    private static String appId;
+
+    public static void setAppId(String id){
+        appId = id;
+    }
 
     public static APIv2 getAPI(){
         if(okClient == null){
@@ -65,21 +67,15 @@ public final class APIv2Helper {
     }
 
     public static class APIv2RequestInterceptor implements RequestInterceptor {
-
-        /**
-         * ONLY SET THIS VARIABLE FROM WITHIN TESTS
-         * It's so we can send a different App Id
-         */
-        public static boolean isFromJunit = false;
-
         @Override
         public void intercept(RequestFacade request) {
-            request.addHeader("X-TBA-App-Id", API_APP_ID+(isFromJunit?"-junit":""));
+            if(appId != null && !appId.isEmpty()) {
+                request.addHeader("X-TBA-App-Id", appId);
+            }
         }
     }
 
     static class APIv2ErrorHandler implements ErrorHandler {
-
         @Override
         public Throwable handleError(RetrofitError cause) {
             System.out.println(cause);
