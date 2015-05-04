@@ -3,3 +3,6 @@ jdk: oraclejdk7
 
 notifications:
   email: false
+
+after_success:
+- ./gradlew jacocoTestReport coveralls
