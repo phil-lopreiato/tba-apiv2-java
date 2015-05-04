@@ -4,9 +4,9 @@
 
 A simple java implementation of The Blue Alliance APIv2 using Retrofit. Supports returning both synchronous data and rxjava Observables
 
-## downloading
+## Downloading
 
-## gradle
+### gradle
 
 the [jcenter() shortcut requires at least gradle 1.7](http://www.gradle.org/docs/1.7/release-notes#jcenter-repository-support)
 
@@ -20,7 +20,7 @@ dependencies {
 }
 ```
 
-## maven
+### maven
 
 ```xml
 <repository>
@@ -37,3 +37,10 @@ dependencies {
 </dependency>
 ```
 
+## Examples
+
+Todo :)
+
+## License
+
+This library is released under the MIT License. See LICENSE.md for full details
