@@ -7,6 +7,7 @@ import retrofit.ErrorHandler;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
+import retrofit.client.OkClient;
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
 
@@ -22,19 +23,45 @@ public final class APIv2Helper {
 
     private static APIv2 tbaAPI;
     private static ObservableAPIv2 observableAPI;
+    private static OkClient okClient;
+    private static RestAdapter adapter;
 
     public static APIv2 getAPI(){
-        if(tbaAPI == null){
-            RestAdapter restAdapter = new RestAdapter.Builder()
+        if(okClient == null){
+            okClient = new OkClient();
+        }
+        if(adapter == null){
+            adapter = new RestAdapter.Builder()
                     .setEndpoint(TBA_APIv2_URL)
                     .setConverter(new RetrofitConverter())
                     .setRequestInterceptor(new APIv2RequestInterceptor())
                     .setErrorHandler(new APIv2ErrorHandler())
-                            //TODO when #369 is merged, set okhttp client
+                    .setClient(okClient)
                     .build();
-            tbaAPI = restAdapter.create(APIv2.class);
+        }
+        if(tbaAPI == null){
+            tbaAPI = adapter.create(APIv2.class);
         }
         return tbaAPI;
+    }
+
+    public static ObservableAPIv2 getObservableAPI(){
+        if(okClient == null){
+            okClient = new OkClient();
+        }
+        if(adapter == null){
+            adapter = new RestAdapter.Builder()
+                    .setEndpoint(TBA_APIv2_URL)
+                    .setConverter(new RetrofitConverter())
+                    .setRequestInterceptor(new APIv2RequestInterceptor())
+                    .setErrorHandler(new APIv2ErrorHandler())
+                    .setClient(okClient)
+                    .build();
+        }
+        if(observableAPI == null){
+            observableAPI = adapter.create(ObservableAPIv2.class);
+        }
+        return observableAPI;
     }
 
     public static class APIv2RequestInterceptor implements RequestInterceptor {
