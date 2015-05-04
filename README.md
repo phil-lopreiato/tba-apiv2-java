@@ -39,7 +39,36 @@ dependencies {
 
 ## Examples
 
-Todo :)
+It's pretty straightforward. Check the [interface](https://github.com/phil-lopreiato/tba-apiv2-java/blob/master/apiv2/src/main/java/com/plnyyanks/tba/apiv2/interfaces/APIv2.java) to see what API calls are available.
+
+```java
+import com.plnyyanks.tba.apiv2.APIv2Helper;
+import com.plnyyanks.tba.apiv2.interfaces.APIv2;
+import com.plnyyanks.tba.apiv2.models.Team;
+
+...
+
+APIv2 api = APIv2Helper.getAPI();
+Team uberbots = api.fetchTeam("frc1124", null); // Add 'If-Modified-Since' header (String) as the second parameter
+System.out.println("Got team with key: "+team.getKey());
+```
+
+If you instead want to have an Observable returned, the syntax is very similar.
+```java
+import com.plnyyanks.tba.apiv2.APIv2Helper;
+import com.plnyyanks.tba.apiv2.interfaces.ObservableAPIv2;
+import com.plnyyanks.tba.apiv2.models.Team;
+
+...
+
+APIv2 api = APIv2Helper.getObservableAPI();
+api.fetchTeamObservable("frc1124", null).subscribe(new Action1<Team>() {
+            @Override
+            public void call(Team team) {
+                System.out.println("Got team with key: "+team.getKey());
+            }
+        });
+```
 
 ## License
 
