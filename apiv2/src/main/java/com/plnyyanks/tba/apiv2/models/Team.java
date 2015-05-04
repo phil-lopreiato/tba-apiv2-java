@@ -9,7 +9,7 @@ public class Team {
         name,
         locality,
         region,
-        country,
+        country_name,
         location,
         key,
         nickname;
@@ -57,12 +57,12 @@ public class Team {
         this.region = region;
     }
 
-    public String getCountry() {
-        return country;
+    public String getCountry_name() {
+        return country_name;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCountry_name(String country_name) {
+        this.country_name = country_name;
     }
 
     public String getLocation() {

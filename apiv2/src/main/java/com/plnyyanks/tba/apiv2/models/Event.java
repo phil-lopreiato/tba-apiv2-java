@@ -18,7 +18,10 @@ public class Event {
         event_district_string,
         location,
         venue_address,
-        website;
+        website,
+        start_date,
+        end_date,
+        facebook_eid;
 
 
     private int
@@ -192,5 +195,29 @@ public class Event {
 
     public void setDistrict_points(JsonObject district_points) {
         this.district_points = district_points;
+    }
+
+    public String getStart_date() {
+        return start_date;
+    }
+
+    public void setStart_date(String start_date) {
+        this.start_date = start_date;
+    }
+
+    public String getEnd_date() {
+        return end_date;
+    }
+
+    public void setEnd_date(String end_date) {
+        this.end_date = end_date;
+    }
+
+    public String getFacebook_eid() {
+        return facebook_eid;
+    }
+
+    public void setFacebook_eid(String facebook_eid) {
+        this.facebook_eid = facebook_eid;
     }
 }

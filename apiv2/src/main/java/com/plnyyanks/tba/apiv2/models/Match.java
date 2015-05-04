@@ -11,11 +11,13 @@ public class Match {
     private String
         key,
         comp_level,
-        event_key;
+        event_key,
+        time_string;
 
     private int
         set_number,
-        match_number;
+        match_number,
+        time;
 
     private JsonObject alliances;
     private JsonElement score_breakdown; // can be null
@@ -91,5 +93,21 @@ public class Match {
 
     public void setVideos(JsonArray videos) {
         this.videos = videos;
+    }
+
+    public String getTime_string() {
+        return time_string;
+    }
+
+    public void setTime_string(String time_string) {
+        this.time_string = time_string;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 }
