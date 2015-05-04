@@ -39,7 +39,7 @@ dependencies {
 
 ## Examples
 
-It's pretty straightforward. Check the [interface](https://github.com/phil-lopreiato/tba-apiv2-java/blob/master/apiv2/src/main/java/com/plnyyanks/tba/apiv2/interfaces/APIv2.java) to see what API calls are available.
+It's pretty straightforward. Check the [interface](https://github.com/phil-lopreiato/tba-apiv2-java/blob/master/apiv2/src/main/java/com/plnyyanks/tba/apiv2/interfaces/APIv2.java) to see what API calls are available. Make sure you set your App Id with `APIv2Helper.setAppId()`
 
 ```java
 import com.plnyyanks.tba.apiv2.APIv2Helper;
@@ -47,7 +47,7 @@ import com.plnyyanks.tba.apiv2.interfaces.APIv2;
 import com.plnyyanks.tba.apiv2.models.Team;
 
 ...
-
+APIv2Helper.setAppId("plnyyanks:apitest:v0.1");
 APIv2 api = APIv2Helper.getAPI();
 Team uberbots = api.fetchTeam("frc1124", null); // Add 'If-Modified-Since' header (String) as the second parameter
 System.out.println("Got team with key: "+team.getKey());
@@ -60,7 +60,7 @@ import com.plnyyanks.tba.apiv2.interfaces.ObservableAPIv2;
 import com.plnyyanks.tba.apiv2.models.Team;
 
 ...
-
+APIv2Helper.setAppId("plnyyanks:apitest:v0.1");
 APIv2 api = APIv2Helper.getObservableAPI();
 api.fetchTeamObservable("frc1124", null).subscribe(new Action1<Team>() {
             @Override
