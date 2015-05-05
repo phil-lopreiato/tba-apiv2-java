@@ -1,6 +1,6 @@
 # tba-apiv2-java
 
-[![Build Status](https://travis-ci.org/phil-lopreiato/tba-apiv2-java.svg)](https://travis-ci.org/phil-lopreiato/tba-apiv2-java) [![Coverage Status](https://coveralls.io/repos/phil-lopreiato/tba-apiv2-java/badge.svg)](https://coveralls.io/r/phil-lopreiato/tba-apiv2-java)
+[![Build Status](https://travis-ci.org/phil-lopreiato/tba-apiv2-java.svg)](https://travis-ci.org/phil-lopreiato/tba-apiv2-java) [![Coverage Status](https://coveralls.io/repos/phil-lopreiato/tba-apiv2-java/badge.svg?branch=master)](https://coveralls.io/r/phil-lopreiato/tba-apiv2-java?branch=master)
 
 A simple java implementation of The Blue Alliance APIv2 using Retrofit. Supports returning both synchronous data and rxjava Observables
 
