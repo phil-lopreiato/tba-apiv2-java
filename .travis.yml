@@ -5,4 +5,4 @@ notifications:
   email: false
 
 after_success:
-- ./gradlew jacocoTestReport coveralls
+- ./gradlew cobertura coveralls
