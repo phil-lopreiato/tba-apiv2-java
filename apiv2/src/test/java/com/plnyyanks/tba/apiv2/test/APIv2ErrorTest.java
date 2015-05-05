@@ -6,6 +6,8 @@ import com.plnyyanks.tba.apiv2.interfaces.APIv2;
 import org.junit.Before;
 import org.junit.Test;
 
+import retrofit.RetrofitError;
+
 /**
  * Created by phil on 5/5/15.
  */
@@ -15,12 +17,14 @@ public class APIv2ErrorTest {
 
     @Before
     public void setupAPIClient(){
-        // Do not set the App ID and try and get an error
+        // Make sure no App Id is set so an error is thrown
+        APIv2Helper.setAppId("");
         api = APIv2Helper.getAPI();
     }
 
-    @Test(expected = Throwable.class)
+    @Test(expected = RetrofitError.class)
     public void testApiNoAppId(){
-        api.fetchTeam("frc1124", null);
+        // Since no App Id is set, TBA will return 400 Bad Request
+        api.fetchTeam("frc254", null);
     }
 }
