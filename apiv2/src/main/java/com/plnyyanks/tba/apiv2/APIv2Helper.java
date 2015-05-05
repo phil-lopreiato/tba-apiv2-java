@@ -29,18 +29,7 @@ public final class APIv2Helper {
     }
 
     public static APIv2 getAPI(){
-        if(okClient == null){
-            okClient = new OkClient();
-        }
-        if(adapter == null){
-            adapter = new RestAdapter.Builder()
-                    .setEndpoint(TBA_APIv2_URL)
-                    .setConverter(new RetrofitConverter())
-                    .setRequestInterceptor(new APIv2RequestInterceptor())
-                    .setErrorHandler(new APIv2ErrorHandler())
-                    .setClient(okClient)
-                    .build();
-        }
+        setupRestAdapter();
         if(tbaAPI == null){
             tbaAPI = adapter.create(APIv2.class);
         }
@@ -48,9 +37,21 @@ public final class APIv2Helper {
     }
 
     public static ObservableAPIv2 getObservableAPI(){
+        setupRestAdapter();
+        if(observableAPI == null){
+            observableAPI = adapter.create(ObservableAPIv2.class);
+        }
+        return observableAPI;
+    }
+
+    private static void setupOkClient(){
         if(okClient == null){
             okClient = new OkClient();
         }
+    }
+
+    private static void setupRestAdapter(){
+        setupOkClient();
         if(adapter == null){
             adapter = new RestAdapter.Builder()
                     .setEndpoint(TBA_APIv2_URL)
@@ -60,10 +61,6 @@ public final class APIv2Helper {
                     .setClient(okClient)
                     .build();
         }
-        if(observableAPI == null){
-            observableAPI = adapter.create(ObservableAPIv2.class);
-        }
-        return observableAPI;
     }
 
     public static class APIv2RequestInterceptor implements RequestInterceptor {
