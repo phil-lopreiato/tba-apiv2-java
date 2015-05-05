@@ -1,6 +1,7 @@
 package com.plnyyanks.tba.apiv2.test;
 
 import com.google.gson.Gson;
+import com.plnyyanks.tba.apiv2.JSONHelper;
 import com.plnyyanks.tba.apiv2.models.Team;
 
 import org.junit.Before;
@@ -24,7 +25,7 @@ public class TeamModelTest {
     @Before
     public void readJsonData(){
         BufferedReader teamReader;
-        Gson gson = new Gson();
+        Gson gson = JSONHelper.getGson();
         String basePath = new File("").getAbsolutePath();
         try {
             teamReader = new BufferedReader(new FileReader(basePath + "/src/test/java/com/plnyyanks/tba/apiv2/test/data/team_frc1124.json"));

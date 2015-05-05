@@ -3,6 +3,7 @@ package com.plnyyanks.tba.apiv2.test;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.plnyyanks.tba.apiv2.JSONHelper;
 import com.plnyyanks.tba.apiv2.models.Event;
 
 import org.junit.Before;
@@ -27,7 +28,7 @@ public class EventModelTest {
     @Before
     public void readJsonData(){
         BufferedReader eventReader;
-        Gson gson = new Gson();
+        Gson gson = JSONHelper.getGson();
         String basePath = new File("").getAbsolutePath();
         try {
             eventReader = new BufferedReader(new FileReader(basePath + "/src/test/java/com/plnyyanks/tba/apiv2/test/data/event_2015cthar.json"));

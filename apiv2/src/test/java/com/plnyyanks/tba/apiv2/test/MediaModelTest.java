@@ -2,6 +2,7 @@ package com.plnyyanks.tba.apiv2.test;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.plnyyanks.tba.apiv2.JSONHelper;
 import com.plnyyanks.tba.apiv2.models.Media;
 
 import org.junit.Before;
@@ -28,7 +29,7 @@ public class MediaModelTest {
     public void readJsonData(){
         BufferedReader cdMediaReader;
         BufferedReader ytMediaReader;
-        Gson gson = new Gson();
+        Gson gson = JSONHelper.getGson();
         String basePath = new File("").getAbsolutePath();
         try {
             cdMediaReader = new BufferedReader(new FileReader(basePath + "/src/test/java/com/plnyyanks/tba/apiv2/test/data/media_cdphotothread.json"));

@@ -3,6 +3,7 @@ package com.plnyyanks.tba.apiv2.test;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.plnyyanks.tba.apiv2.JSONHelper;
 import com.plnyyanks.tba.apiv2.models.Award;
 
 import org.junit.Before;
@@ -29,7 +30,7 @@ public class AwardModelTest {
     public void readJsonData(){
         BufferedReader individualReader;
         BufferedReader teamReader;
-        Gson gson = new Gson();
+        Gson gson = JSONHelper.getGson();
         String basePath = new File("").getAbsolutePath();
         try {
             individualReader = new BufferedReader(new FileReader(basePath + "/src/test/java/com/plnyyanks/tba/apiv2/test/data/award_individual.json"));

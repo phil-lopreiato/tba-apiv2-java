@@ -3,6 +3,7 @@ package com.plnyyanks.tba.apiv2.test;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.plnyyanks.tba.apiv2.JSONHelper;
 import com.plnyyanks.tba.apiv2.models.Match;
 
 import org.junit.Before;
@@ -26,7 +27,7 @@ public class MatchModelTest {
     @Before
     public void readJsonData(){
         BufferedReader matchReader;
-        Gson gson = new Gson();
+        Gson gson = JSONHelper.getGson();
         String basePath = new File("").getAbsolutePath();
         try {
             matchReader = new BufferedReader(new FileReader(basePath + "/src/test/java/com/plnyyanks/tba/apiv2/test/data/match_2014cmp_f1m1.json"));
