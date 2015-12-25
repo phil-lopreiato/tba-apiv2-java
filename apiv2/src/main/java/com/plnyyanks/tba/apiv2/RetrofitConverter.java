@@ -1,6 +1,4 @@
-package com.plnyyanks.tba.apiv2; /**
- * Created by phil on 4/6/15.
- */
+package com.plnyyanks.tba.apiv2;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;

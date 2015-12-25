@@ -1,8 +1,5 @@
 package com.plnyyanks.tba.apiv2.models;
 
-/**
- * Created by phil on 3/30/15.
- */
 public class District {
     private String
         name,

@@ -2,9 +2,6 @@ package com.plnyyanks.tba.apiv2.models;
 
 import com.google.gson.JsonArray;
 
-/**
- * Created by phil on 3/30/15.
- */
 public class Award {
     private String
         name,

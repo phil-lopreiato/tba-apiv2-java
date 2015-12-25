@@ -2,9 +2,6 @@ package com.plnyyanks.tba.apiv2.models;
 
 import com.google.gson.JsonObject;
 
-/**
- * Created by phil on 3/30/15.
- */
 public class Media {
     private String
         type,

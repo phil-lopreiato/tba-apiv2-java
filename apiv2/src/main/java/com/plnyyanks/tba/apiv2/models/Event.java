@@ -5,9 +5,6 @@ import com.google.gson.JsonObject;
 
 import java.util.List;
 
-/**
- * Created by phil on 3/30/15.
- */
 public class Event {
     private String
         key,

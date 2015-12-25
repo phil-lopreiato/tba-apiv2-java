@@ -4,9 +4,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-/**
- * Created by phil on 3/30/15.
- */
 public class Match {
     private String
         key,

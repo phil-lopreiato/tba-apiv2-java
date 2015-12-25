@@ -15,138 +15,135 @@ import retrofit.http.GET;
 import retrofit.http.Header;
 import retrofit.http.Path;
 
-/**
- * Created by phil on 3/30/15.
- */
 public interface APIv2 {
     @GET("/teams/{pageNum}")
-    public List<Team> fetchTeamPage(
+    List<Team> fetchTeamPage(
             @Path("pageNum") int pageNum,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/team/{teamKey}")
-    public Team fetchTeam(
+    Team fetchTeam(
             @Path("teamKey") String teamKey,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/team/{teamKey}/{year}/events")
-    public List<Event> fetchTeamEvents(
+    List<Event> fetchTeamEvents(
             @Path("teamKey") String teamKey,
             @Path("year") int year,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/team/{teamKey}/event/{eventKey}/awards")
-    public List<Award> fetchTeamAtEventAwards(
+    List<Award> fetchTeamAtEventAwards(
             @Path("teamKey") String teamKey,
             @Path("eventKey") String eventKey,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/team/{teamKey}/event/{eventKey}/matches")
-    public List<Match> fetchTeamAtEventMatches(
+    List<Match> fetchTeamAtEventMatches(
             @Path("teamKey") String teamKey,
             @Path("eventKey") String eventKey,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/team/{teamKey}/years_participated")
-    public List<Integer> fetchTeamYearsParticipated(
+    List<Integer> fetchTeamYearsParticipated(
             @Path("teamKey") String teamKey,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/team/{teamKey}/{year}/media")
-    public List<Media> fetchTeamMediaInYear(
+    List<Media> fetchTeamMediaInYear(
             @Path("teamKey") String teamKey,
             @Path("year") int year,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/team/{teamKey}/history/events")
-    public List<Event> fetchTeamEventHistory(
+    List<Event> fetchTeamEventHistory(
             @Path("teamKey") String teamKey,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/team/{teamKey}/history/awards")
-    public List<Award> fetchTeamAwardHistory(
+    List<Award> fetchTeamAwardHistory(
             @Path("teamKey") String teamKey,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/events/{year}")
-    public List<Event> fetchEventsInYear(
+    List<Event> fetchEventsInYear(
             @Path("year") int year,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/event/{eventKey}")
-    public Event fetchEvent(
+    Event fetchEvent(
             @Path("eventKey") String eventKey,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/event/{eventKey}/teams")
-    public List<Team> fetchEventTeams(
+    List<Team> fetchEventTeams(
             @Path("eventKey") String eventKey,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/event/{eventKey}/rankings")
-    public JsonArray fetchEventRankings(
+    JsonArray fetchEventRankings(
             @Path("eventKey") String eventKey,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/event/{eventKey}/matches")
-    public List<Match> fetchEventMatches(
+    List<Match> fetchEventMatches(
             @Path("eventKey") String eventKey,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/event/{eventKey}/stats")
-    public JsonObject fetchEventStats(
+    JsonObject fetchEventStats(
             @Path("eventKey") String eventKey,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/event/{eventKey}/awards")
-    public List<Award> fetchEventAwards(
+    List<Award> fetchEventAwards(
             @Path("eventKey") String eventKey,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/event/{eventKey}/district_points")
-    public JsonObject fetchEventDistrictPoints(
+    JsonObject fetchEventDistrictPoints(
             @Path("eventKey") String eventKey,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/districts/{year}")
-    public List<District> fetchDistrictList(
+    List<District> fetchDistrictList(
             @Path("year") int year,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/district/{districtShort}/{year}/events")
-    public List<Event> fetchDistrictEvents(
+    List<Event> fetchDistrictEvents(
             @Path("districtShort") String districtShort,
             @Path("year") int year,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/district/{districtShort}/{year}/rankings")
-    public JsonArray fetchDistrictRankings(
+    JsonArray fetchDistrictRankings(
             @Path("districtShort") String districtShort,
             @Path("year") int year,
             @Header("If-Modified-Since") String ifModifiedSince
     );
 
     @GET("/match/{matchKey}")
-    public Match fetchMatch(
+    Match fetchMatch(
             @Path("matchKey") String matchKey,
             @Header("If-Modified-Since") String ifModifiedSince
     );

@@ -3,9 +3,6 @@ package com.plnyyanks.tba.apiv2;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-/**
- * Created by phil on 4/6/15.
- */
 public final class JSONHelper {
     private static Gson gson;
 

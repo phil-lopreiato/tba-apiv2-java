@@ -11,9 +11,6 @@ import retrofit.client.OkClient;
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
 
-/**
- * Created by phil on 4/6/15.
- */
 public final class APIv2Helper {
 
     public static final String TBA_APIv2_URL = "http://www.thebluealliance.com/api/v2";
